@@ -5,6 +5,13 @@ int isLeapYear(int year) {
     return ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0));
 }
 
+int daysInMonth(int month, int year) {
+    int days[] = {31, 28 + isLeapYear(year), 31, 30, 31, 30, 
+                  31, 31, 30, 31, 30, 31};
+    return days[month - 1];
+}
+
+
 int main(int argc, char *argv[]) {
   if (argc != 7) {
       printf("Использование: %s д1 м1 г1 д2 м2 г2\n", argv[0]);
