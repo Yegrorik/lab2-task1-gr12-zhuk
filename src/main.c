@@ -51,4 +51,14 @@ int main(int argc, char *argv[]) {
   printf("Первая дата: %02d.%02d.%04d\n", d1, m1, y1);
   printf("Вторая дата: %02d.%02d.%04d\n", d2, m2, y2);
   printf("(отсчет с 1 января 1970 года)\n\n");
+
+  int days1 = daysSince1970(d1, m1, y1);
+  int days2 = daysSince1970(d2, m2, y2);
+
+  printf("Результаты:\n");
+  printf("Дней с 01.01.1970 до %02d.%02d.%04d: %d\n", d1, m1, y1, days1);
+  printf("Дней с 01.01.1970 до %02d.%02d.%04d: %d\n", d2, m2, y2, days2);
+  printf("Дней между датами: %d\n", abs(days2 - days1));
+
+  return 0;
 }
