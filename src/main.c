@@ -11,6 +11,27 @@ int daysInMonth(int month, int year) {
     return days[month - 1];
 }
 
+int daysSince1970(int day, int month, int year) {
+    int total = 0;
+
+    if (year < 1970 || month < 1 || month > 12 || 
+        day < 1 || day > daysInMonth(month, year)) {
+        return -1;
+    }
+
+    for (int y = 1970; y < year; y++) {
+        total += isLeapYear(y) ? 366 : 365;
+    }
+
+    for (int m = 1; m < month; m++) {
+        total += daysInMonth(m, year);
+    }
+
+    total += day - 1;
+
+    return total;
+}
+
 
 int main(int argc, char *argv[]) {
   if (argc != 7) {
