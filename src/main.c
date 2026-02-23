@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int isLeapYear(int year) {
+    return ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0));
+}
+
 int main(int argc, char *argv[]) {
   if (argc != 7) {
       printf("Использование: %s д1 м1 г1 д2 м2 г2\n", argv[0]);
